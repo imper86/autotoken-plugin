@@ -1,0 +1,22 @@
+{
+    "name": "imper86/autotoken-plugin",
+    "description": "Token manager for apis",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "imper",
+            "email": "me@imper.info"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "php-http/client-common": "^2.0",
+        "imper86/php-oauth2-client": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Imper86\\TokenManagerPlugin\\": "src"
+        }
+    }
+}
