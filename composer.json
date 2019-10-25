@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Imper86\\TokenManagerPlugin\\": "src"
+            "Imper86\\AutoTokenPlugin\\": "src"
         }
     }
 }

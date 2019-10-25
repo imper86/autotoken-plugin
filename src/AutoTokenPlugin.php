@@ -6,7 +6,7 @@
  * Time: 15:18
  */
 
-namespace Imper86\TokenManagerPlugin;
+namespace Imper86\AutoTokenPlugin;
 
 use Http\Client\Common\Plugin;
 use Http\Promise\Promise;
