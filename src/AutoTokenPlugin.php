@@ -10,6 +10,7 @@ namespace Imper86\AutoTokenPlugin;
 
 use Http\Client\Common\Plugin;
 use Http\Promise\Promise;
+use Imper86\OauthClient\Constants\GrantType;
 use Imper86\OauthClient\Model\TokenInterface;
 use Imper86\OauthClient\OauthClientInterface;
 use Imper86\OauthClient\Repository\TokenRepositoryInterface;
@@ -80,7 +81,11 @@ class AutoTokenPlugin implements Plugin
         $token = $this->tokenRepository->load($this->ownerIdentifier);
 
         if ($token->isExpired()) {
-            $token = $this->oauthClient->refreshToken($token);
+            if ($token->getGrantType() === GrantType::CLIENT_CREDENTIALS) {
+                $token = $this->oauthClient->fetchClientCredentialsToken();
+            } else {
+                $token = $this->oauthClient->refreshToken($token);
+            }
         }
 
         return $token;
